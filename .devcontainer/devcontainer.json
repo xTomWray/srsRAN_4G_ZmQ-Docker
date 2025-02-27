@@ -1,6 +1,6 @@
 {
     "name": "srsRAN_4G devcontainer",
-    "dockerFile": "Dockerfile",
+    "dockerFile": "../Dockerfile",
     "workspaceFolder": "/workspace",
     "runArgs": ["--network", "host", "--privileged"],
     "features": {},

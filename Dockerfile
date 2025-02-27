@@ -1,4 +1,4 @@
-# Base Image
+# ======= Base Image =======
 FROM ubuntu:22.04 AS base
 
 # Set environment variables
@@ -52,13 +52,16 @@ RUN git clone https://github.com/srsran/srsRAN.git /opt/srsRAN && \
     mkdir build && cd build && \
     cmake .. -G Ninja -DUSE_ZEROMQ=ON && \
     ninja && ninja install && \
-    /opt/srsRAN/build/srsran_install_configs.sh user
+    sudo /opt/srsRAN/build/srsran_install_configs.sh service
 
 # ======= Final Runtime Image =======
 FROM dependencies AS final
 
 # Copy built srsRAN from builder stage
 COPY --from=srsran-builder /opt/srsRAN /opt/srsRAN
+
+# Copy generated config files
+COPY --from=srsran-builder /etc/srsran /etc/srsran
 
 # Set work directory
 WORKDIR /workspace

@@ -22,3 +22,5 @@ Utilize the ue1 network namespace that is created by the srsRAN_4G_ZMQ_start
 # Dockerfile Overview
 
 Base: ubuntu 22.04
+Grab required dependencies for srsRAN 4G, srsGUI, RF front-end drivers, misc.
+Clone the srsRAN repo and then build
