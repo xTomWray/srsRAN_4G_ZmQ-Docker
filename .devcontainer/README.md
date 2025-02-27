@@ -2,7 +2,7 @@
 
 The point of this .devcontainer is provide a quick way to deploy a 4G test setup with no hardware. 
 
-To startup simply run 
+To startup inside the container simply run 
 
 ```sudo ./srsRAN_4G_ZMQ_startup```
 
